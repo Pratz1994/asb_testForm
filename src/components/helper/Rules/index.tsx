@@ -1,7 +1,5 @@
-import isMinMax from "./isMinMax";
-import isNumber from "./isNumber";
+import isNotNull from "./isNotNull";
 
 export default {
-    isMinMax,
-    isNumber,
+    isNotNull,
 }

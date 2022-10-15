@@ -8,9 +8,7 @@ interface Props {
 
 const Index: React.FC<Props> = ({ label, className, isTrue }) => {
   let defaultStyle =
-    "py-2 px-4 bg-skin-bgPrimary text-skin-txPrimary font-semibold rounded-lg shadow-md hover:bg-skin-bgPrimaryHover focus:outline-none";
-  if (className) defaultStyle = defaultStyle.concat(" ", className);
-  if(isTrue) defaultStyle = "py-2 px-4 bg-skin-bgPrimaryMuted text-skin-txPrimary font-semibold rounded-lg shadow-md focus:outline-none";
+   "bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded";
 
   return (
     <button type="submit" className={defaultStyle}>

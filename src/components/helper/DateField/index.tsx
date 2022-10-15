@@ -2,47 +2,41 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
 interface Props {
-  // error: Array<string>;
+  error: Array<string>;
+  placeholder: string;
   name: string;
   value: string;
   className?: string | null | undefined;
-  // onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onChange: (date: Date) => void;
 }
 
 const Index: React.FC<Props> = ({
-  // error,
-  name,
+  error,
+  placeholder,
   value,
   className,
   onChange,
 }) => {
   const defaultStyleValid =
     "relative bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-skin-bdrPrimary focus:ring-skin-rngPrimary";
-  // if (error.length > 0) defaultStyle = defaultStyleInValid;
+  const defaultStyleInValid =
+    "relative bg-red-200 appearance-none border-2 border-red-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-skin-bdrError focus:ring-skin-rngError";
+  let defaultStyle = defaultStyleValid;
+  if (className) defaultStyle = className;
+  if (error.length > 0) defaultStyle = defaultStyleInValid;
 
   return (
     <div className="mb-4">
-      {/* <DatePicker
-        placeholderText="YYYY-MM-DD"
-        dateFormat="yyyy-MM-dd"
-        id={name}
-        name={name}
-        autoComplete="off"
+      <DatePicker
+        dateFormat="MM/yy"
+        showMonthYearPicker
         selected={value ? new Date(value) : null}
-        className={defaultStyle}
+        minDate={new Date()}
         onChange={onChange}
-      /> */}
-   <DatePicker
-   dateFormat="MMMM yyyy"
-   showMonthYearPicker
-   selected={value ? new Date(value) : null}
-   onChange={onChange}
-   className={defaultStyleValid}
-   
-/>
+        className={defaultStyle}
+        placeholderText={placeholder}
+      />
     </div>
   );
 };

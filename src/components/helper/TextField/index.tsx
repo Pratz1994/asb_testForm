@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import { FC } from "react";
 
 interface Props {
-  // error: Array<string>;
+  error: Array<string>;
   name: string;
   placeholder?: string;
   value: string;
@@ -10,29 +10,32 @@ interface Props {
 }
 
 const Index: FC<Props> = ({
-  // error,
+  error,
   name,
   placeholder,
   value,
   className,
   onChange,
 }) => {
-  const defaultStyle =
+  const defaultStyleValid =
     "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline";
-
-  // if (error.length > 0) defaultStyle = defaultStyleInValid;
+  const defaultStyleInValid =
+    "bg-red-200 appearance-none border-1 border-red-200 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-skin-bdrError focus:ring-skin-rngError";
+  let defaultStyle = defaultStyleValid;
+  if (className) defaultStyle = className;
+  if (error.length > 0) defaultStyle = defaultStyleInValid;
 
   return (
     <div className="mb-4">
-    <input
-      type="text"
-      id={name}
-      name={name}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-      className={defaultStyle}
-    />
+      <input
+        type="number"
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        className={defaultStyle}
+      />
     </div>
   );
 };

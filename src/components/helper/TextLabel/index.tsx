@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC } from "react";
 
 interface Label {
   name: string;
@@ -11,10 +11,9 @@ interface Props {
 }
 
 const Index: FC<Props> = ({ label, className }) => {
-  console.log("label",label)
-  let defaultStyle =
-    "block text-gray-700 text-sm font-bold mb-2";
-  
+  console.log("label", label);
+  let defaultStyle = "block text-gray-700 text-sm font-bold mb-2";
+
   return (
     <label className={defaultStyle} htmlFor={label.name}>
       {label.label}
